@@ -6,6 +6,7 @@ import { AiFillMessage } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { IoIosBook } from "react-icons/io";
 import { IoMenu, IoClose } from "react-icons/io5";
+import { FiSearch } from "react-icons/fi";
 
 const links = [
   {
@@ -15,82 +16,100 @@ const links = [
   },
   {
     label: "Books",
-    href: "/books",
+    href: "/ui/Book",
     icon: <CgProfile />
   },
   {
     label: "Magazines",
-    href: "/magazines",
+    href: "/ui/Magazine",
     icon: <IoIosBook />
   },
   {
     label: "Textbooks",
-    href: "/textbooks",
+    href: "/ui/Textbooks",
     icon: <IoIosBook />
   },
   {
     label: "Audiobooks",
-    href: "/audiobooks",
+    href: "/ui/Audiobooks",
     icon: <IoIosBook />
   },
   {
     label: "Recommended",
-    href: "/recommended",
+    href: "/ui/Recommended",
     icon: <IoIosBook />
   },
   {
     label: "Sales",
-    href: "/sales",
+    href: "/ui/Sales",
     icon: <IoIosBook />
   }
 ]
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
   
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   }
 
-  const closeMenu = () => {
-    setMenuOpen(false);
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
   }
 
   return (
-    <div className='text-center bg-gray-100 p-2 cursor-pointer'>
-      <div className='flex justify-between md:justify-around gap-5 mx-2 items-center'>
-        <div className='flex items-center gap-1'>
+    <nav className="bg-gray-100 p-2">
+      <div className="flex justify-between md:justify-around items-center mx-2">
+        <div className="flex items-center gap-1">
           <IoIosBook className="text-2xl md:text-3xl text-purple-800" />
           <p className="font-bold">BookCompass</p>
         </div>
-        <div className="md:flex gap-5 hidden">
+        <div className="hidden md:flex gap-5">
           {
             links.map((link) => (
               <Link href={link.href} key={link.label}>
-                <p className={`text-purple-600 md:flex md:hover:text-gray-900 ${pathname === link.href ? 'md:text-gray-900' : ''}`}>
+                <p className={`text-purple-600 md:hover:text-gray-900 ${pathname === link.href ? 'md:text-gray-900' : ''}`}>
                   {link.label}
                 </p>
               </Link>
             ))
           }
         </div>
-        <div>
-          <ul className='flex gap-2 justify-center items-center'>
-            <li className="hidden md:block"><AiFillMessage className="text-2xl" /></li>
-            <li className="md:flex hidden items-center gap-2 ml-3 rounded-md px-2 md:px-4 py-2 md:border-2 border-purple-500 text-purple-500 font-bold"><CgProfile className="text-purple-500 text-2xl" />Name</li>
-            <li className="md:hidden text-3xl" onClick={toggleMenu}>
-              {menuOpen ? <IoClose /> : <IoMenu />}
-            </li>
-          </ul>
+        <div className="flex items-center gap-2">
+          <FiSearch 
+            className="text-2xl cursor-pointer" 
+            onClick={toggleSearch} 
+            aria-label="Toggle search"
+          />
+          <button 
+            className="md:hidden text-3xl focus:outline-none" 
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <IoClose /> : <IoMenu />}
+          </button>
         </div>
       </div>
-      <div className={`fixed top-0 right-0 h-full w-2/4 bg-gray-100 z-50 transition-transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
-        <div className='flex flex-col items-start p-4'>
+      {searchOpen && (
+        <div className="flex justify-center mt-2">
+          <input
+            type="text"
+            placeholder="Search Books"
+            className="w-3/4 p-2 border-b-2 border-gray-300 focus:outline-none focus:border-purple-600"
+          />
+        </div>
+      )}
+      <div className={`fixed top-0 right-0 h-full w-1/4 bg-gray-100 z-50 transition-transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+        <div className="flex flex-col items-start p-4">
           {
             links.map((link) => (
               <Link href={link.href} key={link.label}>
-                <p className={`text-purple-600 block py-2 hover:text-gray-900 ${pathname === link.href ? 'text-gray-900' : ''}`} onClick={closeMenu}>
+                <p 
+                  className={`text-purple-600 block py-2 w-full hover:text-gray-900 hover:bg-teal-100 hover:rounded-md hover:p-2 ${pathname === link.href ? 'text-gray-900' : ''}`} 
+                  onClick={toggleMenu}
+                >
                   {link.label}
                 </p>
               </Link>
@@ -98,8 +117,8 @@ const Navbar = () => {
           }
         </div>
       </div>
-    </div>
-  )
+    </nav>
+  );
 }
 
 export default Navbar;
