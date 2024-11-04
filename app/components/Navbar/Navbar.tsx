@@ -77,7 +77,7 @@ const Navbar = () => {
             ))
           }
         </div>
-        <div className="flex items-center gap-2">
+         <div className="flex items-center gap-2">
           <FiSearch 
             className="text-2xl cursor-pointer" 
             onClick={toggleSearch} 
@@ -91,6 +91,11 @@ const Navbar = () => {
             {menuOpen ? <IoClose /> : <IoMenu />}
           </button>
         </div>
+        <div className="md:flex gap-2 hidden ">
+            <AiFillMessage className="text-2xl cursor-pointer" />
+            <CgProfile className="text-2xl cursor-pointer border-2 border-violet-500 outline-2 w-20  outline-gray-50 text-purple-500 rounded-md"/>
+        </div>
+       
       </div>
       {searchOpen && (
         <div className="flex justify-center mt-2">
@@ -101,7 +106,7 @@ const Navbar = () => {
           />
         </div>
       )}
-      <div className={`fixed top-0 right-0 h-full w-1/4 bg-gray-100 z-50 transition-transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+      <div className={`fixed top-0 right-0 h-full w-2/4 bg-gray-100 z-50 transition-transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
         <div className="flex flex-col items-start p-4">
           {
             links.map((link) => (
