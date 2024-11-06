@@ -8,14 +8,7 @@ import Pages from './components/HomePage/Pages';
 
 export default function Home() {
 
-  const images = [
-    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-  ];
+ 
 
   return (
     <section className='bg-purple-50 py-12'>
