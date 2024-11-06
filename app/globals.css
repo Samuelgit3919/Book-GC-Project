@@ -2,10 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.loading-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+/* @import 'swiper/swiper-bundle.min.css'; */
