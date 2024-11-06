@@ -38,9 +38,6 @@ importers:
       react-swiper:
         specifier: ^0.1.5
         version: 0.1.5
-      react-swipper:
-        specifier: ^1.0.2
-        version: 1.0.2(react@19.0.0-rc-02c0e824-20241028)
       slick-carousel:
         specifier: ^1.8.1
         version: 1.8.1(jquery@3.7.1)
@@ -746,11 +743,6 @@ packages:
 
   react-swiper@0.1.5:
     resolution: {integrity: sha512-6ejmuzood/uh1vTvWryMUR2GeRA4XTjBDAk6i3W4qUf9+calY/TdlIAtqSFkTaHpyn6A7bI9SfFNi+pr+fZJcQ==}
-
-  react-swipper@1.0.2:
-    resolution: {integrity: sha512-IO0mIZjOwPrMOJSIua+9v+e4FvZpqk/vu9t6nbEVLhaf1Odd/JRqTpJO5edsRnGj4kv5CRWdSG65sEqJXrIiPg==}
-    peerDependencies:
-      react: '>=0.11.1'
 
   react@19.0.0-rc-02c0e824-20241028:
     resolution: {integrity: sha512-GbZ7hpPHQMiEu53BqEaPQVM/4GG4hARo+mqEEnx4rYporDvNvUjutiAFxYFSbu6sgHwcr7LeFv8htEOwALVA2A==}
@@ -1537,10 +1529,6 @@ snapshots:
   react-swiper@0.1.5:
     dependencies:
       object-assign: 2.1.1
-
-  react-swipper@1.0.2(react@19.0.0-rc-02c0e824-20241028):
-    dependencies:
-      react: 19.0.0-rc-02c0e824-20241028
 
   react@19.0.0-rc-02c0e824-20241028: {}
 
