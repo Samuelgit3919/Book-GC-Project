@@ -6,57 +6,63 @@ import { FaPeopleGroup } from 'react-icons/fa6';
 import Corousel from './components/corousel/Corousel';
 import Pages from './components/HomePage/Pages';
 
-
-
-
-
 export default function Home() {
 
-    const images = [
-      'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-      'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-      'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-       'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-      'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
-      'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',  
-    ]
-    // Add more image paths as needed
-  
-    return (
-      <section className=''>
-        <div className='flex justify-start items-center my-12'>
-          <div className='w-2/5 ml-24 mt-8'>
-            <h1 className='font-bold text-4xl'>Welcome to BookCompass <br /> Online Book Navigator</h1>
-            <p className='my-8'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime suscipit dolor placeat nemo ea eius reprehenderit, eum esse. Quisquam pariatur doloribus numquam eos quo hic soluta in porro vitae provident?
-            </p>
-            <div className='flex items-center gap-4'>
-              <div className=' font-bold'>
-                <span className='flex items-center gap-2'>
-                  <HiOutlineCollection className='text-3xl' /> 68+k
-                </span>
-                <p className='font-normal'>Book Collections</p>
-              </div>
+  const images = [
+    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
+    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
+    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
+    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
+    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
+    'https://i.pinimg.com/736x/9f/5c/3b/9f5c3b4f3e9bfbe4f777a54f2f4f742a.jpg',
+  ];
 
-              <div className='font-bold'>
-                <span className='flex items-center gap-2'>
-                  <FaPeopleGroup className='text-3xl' />
-                  25,567 
-                </span>
-                <p className='font-normal'>Customers</p>
-              </div>
+  return (
+    <section className='bg-purple-50 py-12'>
+      <div className='container mx-auto md:ml-8 flex flex-col lg:flex-row items-center lg:space-x-8'>
+        
+        {/* Text Section */}
+        <div className='w-full lg:w-2/5 px-6 text-center lg:text-left'>
+          <h1 className='font-bold text-4xl lg:text-5xl text-purple-800 mb-6'>
+            Welcome to BookCompass <br /> Online Book Navigator
+          </h1>
+          <p className='text-gray-700 mb-8'>
+            Discover a world of books with ease. BookCompass provides an intuitive way to explore, compare, and purchase books online. Join a thriving community of readers!
+          </p>
+          
+          {/* Stats Section */}
+          <div className='flex justify-center lg:justify-start items-center gap-8 mb-8'>
+            <div className='text-center flex flex-col items-center'>
+              <HiOutlineCollection className='text-4xl text-purple-500 mb-2' />
+              <p className='text-2xl font-bold text-purple-800'>68+k</p>
+              <p className='text-gray-600'>Book Collections</p>
             </div>
 
-            <div className='flex mt-12  text-white '>
-              <button className='text-white p-2  bg-red-700 rounded-md'><a href="#" className='flex items-center gap-3'>Go to collections <FaArrowRight /></a></button>
+            <div className='text-center flex flex-col items-center'>
+              <FaPeopleGroup className='text-4xl text-purple-500 mb-2' />
+              <p className='text-2xl font-bold text-purple-800'>25,567</p>
+              <p className='text-gray-600'>Customers</p>
             </div>
           </div>
 
-          <div className=' flex items-center justify-center rounded-sm w-3/5 h-[70vh]'>
+          {/* Button Section */}
+          <div className='flex justify-center lg:justify-start'>
+            <a href="#" className='inline-flex items-center gap-3 px-6 py-3 text-white font-semibold bg-purple-700 hover:bg-purple-800 transition rounded-md'>
+              Go to Collections <FaArrowRight />
+            </a>
+          </div>
+        </div>
+
+        {/* Carousel Section */}
+        <div className='w-full lg:w-3/5 mt-12 lg:mt-0'>
+          <div className='overflow-hidden'>
             <Corousel />
           </div>
         </div>
-        <Pages />
-      </section>
+      </div>
 
-    );
+      {/* Additional Pages Component */}
+      <Pages />
+    </section>
+  );
 }

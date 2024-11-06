@@ -6,47 +6,50 @@ import { MdAssistantNavigation, MdPriceChange } from 'react-icons/md'
 const data = [
   {
     title: 'Clear Navigation',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    icon: <MdAssistantNavigation className='text-3xl text-purple-500'/>,
-    // backgroundColor: '#8B0000'
+    description: 'Navigate with ease through an intuitive and user-friendly interface.',
+    icon: <MdAssistantNavigation className='text-4xl text-purple-600' />,
+    backgroundColor: 'bg-purple-100'
   },
   {
     title: 'Price Comparison',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    icon: <MdPriceChange className='text-3xl text-purple-500'/>,
-    // backgroundColor: '#8B0000'
+    description: 'Compare prices instantly and get the best deals available.',
+    icon: <MdPriceChange className='text-4xl text-purple-600' />,
+    backgroundColor: 'bg-purple-100'
   },
   {
     title: 'Personalized Service',
-     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    icon: <FaBookOpen className='text-3xl text-purple-500'/>,
-    // backgroundColor: '#8B0000'
+    description: 'Enjoy a personalized experience tailored to your needs.',
+    icon: <FaBookOpen className='text-4xl text-purple-600' />,
+    backgroundColor: 'bg-purple-100'
   },
   {
     title: 'Community',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    icon: <FaPeopleGroup  className='text-3xl text-purple-500'/>,
-    // backgroundColor: '#8B0000'
+    description: 'Engage with a community of book lovers and share insights.',
+    icon: <FaPeopleGroup className='text-4xl text-purple-600' />,
+    backgroundColor: 'bg-purple-100'
   }
-]
+];
+
 const Service = () => {
   return (
-    <div className='mx-0 flex px-5 bg-purple-200'>
-      {
-        data.map(item => (
-          <div key={item.title} className='flex-1 p-5'>
-            <div className='flex flex-col space-y-3 text-center items-center'>
-              {item.icon}
-              <div className='ml-3'>
-                <h3 className='text-2xl font-bold'>{item.title}</h3>
-                <p className='text-sm'>{item.description}</p>
-              </div>
+    <div className='px-5 py-10 bg-purple-50'>
+      <h2 className='text-3xl font-bold text-center text-purple-700 mb-8'>Our Services</h2>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
+        {data.map(item => (
+          <div
+            key={item.title}
+            className={`p-6 rounded-lg shadow-lg ${item.backgroundColor} hover:bg-purple-200 transition duration-300`}
+          >
+            <div className='flex flex-col items-center space-y-4 text-center'>
+              <div className='p-4 bg-white rounded-full shadow-md'>{item.icon}</div>
+              <h3 className='text-xl font-semibold text-purple-800'>{item.title}</h3>
+              <p className='text-gray-700'>{item.description}</p>
             </div>
           </div>
-        ))
-      }
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default Service
+export default Service;
