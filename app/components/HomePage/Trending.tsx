@@ -1,4 +1,5 @@
 import React from 'react';
+import TrendingCarousel from '../corousel/TrendingCarousel';
 
 
 const Trending = () => {
@@ -9,15 +10,16 @@ const Trending = () => {
       <div>
         <h1 className="font-bold text-2xl md:text-3xl text-gray-900">Trending This Week</h1>
         <p className="text-sm md:text-base text-gray-700 mt-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br /> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </div>
-
-      
+      <div>
+        <TrendingCarousel />
+      </div>
 
       <div className="mt-4 flex flex-col items-center">
         <img
-          src="https://via.placeholder.com/100"
+          src="https://i.pinimg.com/736x/03/eb/d6/03ebd625cc0b9d636256ecc44c0ea324.jpg"
           alt="Reviewer"
           className="w-16 h-16 rounded-full border-4 border-white shadow-lg"
         />

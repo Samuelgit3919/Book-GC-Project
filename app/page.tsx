@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+
 import { FaArrowRight } from 'react-icons/fa';
 import { HiOutlineCollection } from 'react-icons/hi';
 import { FaPeopleGroup } from 'react-icons/fa6';
@@ -7,9 +7,6 @@ import Corousel from './components/corousel/Corousel';
 import Pages from './components/HomePage/Pages';
 
 export default function Home() {
-
- 
-
   return (
     <section className='bg-purple-50 py-12'>
       <div className='container mx-auto md:ml-8 flex flex-col lg:flex-row items-center lg:space-x-8'>
@@ -59,3 +56,7 @@ export default function Home() {
     </section>
   );
 }
+
+
+
+

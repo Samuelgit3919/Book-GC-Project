@@ -46,6 +46,7 @@ const links = [
   }
 ]
 
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
