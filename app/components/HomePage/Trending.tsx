@@ -1,34 +1,44 @@
-import React from 'react';
-import TrendingCarousel from '../corousel/TrendingCarousel';
+import React from "react";
+import TrendingCarousel from "../corousel/TrendingCarousel";
 
+const StarRating = ({ count = 5, activeColor = "text-yellow-500" }) => (
+  <div className="flex mt-1" aria-label={`Rating: ${count} out of 5`}>
+    {[...Array(count)].map((_, i) => (
+      <span key={i} className={`${activeColor}`}>
+        ★
+      </span>
+    ))}
+  </div>
+);
 
 const Trending = () => {
-
-
   return (
-    <div className="flex flex-col items-center justify-center text-center w-full mt-10 mx-auto space-y-6 px-4">
-      <div>
-        <h1 className="font-bold text-2xl md:text-3xl text-gray-900">Trending This Week</h1>
-        <p className="text-sm md:text-base text-gray-700 mt-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br /> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    <div className="flex flex-col items-center justify-center text-center w-full mt-10 mx-auto space-y-8 px-4">
+      {/* Header */}
+      <div className="space-y-3">
+        <h1 className="font-bold text-2xl md:text-4xl text-gray-900">
+          Trending This Week
+        </h1>
+        <p className="text-sm md:text-base text-gray-700">
+          Discover the most popular trends everyone is talking about. Stay
+          inspired and keep exploring!
         </p>
       </div>
-      <div>
+
+      {/* Carousel */}
+      <div className="w-full max-w-5xl">
         <TrendingCarousel />
       </div>
 
-      <div className="mt-4 flex flex-col items-center">
+      {/* Reviewer Section */}
+      <div className="mt-6 flex flex-col items-center animate-fade-in-up">
         <img
           src="https://i.pinimg.com/736x/03/eb/d6/03ebd625cc0b9d636256ecc44c0ea324.jpg"
-          alt="Reviewer"
-          className="w-16 h-16 rounded-full border-4 border-white shadow-lg"
+          alt="Reviewer Ijeoma Oluo giving feedback"
+          className="w-20 h-20 rounded-full border-4 border-gray-200 shadow-lg transition-transform transform hover:scale-105"
         />
-        <p className="mt-2 font-semibold">Ijeoma Oluo</p>
-        <div className="flex mt-1 text-yellow-500">
-          {[...Array(5)].map((_, i) => (
-            <span key={i}>★</span>
-          ))}
-        </div>
+        <p className="mt-3 font-semibold text-lg text-gray-800">Ijeoma Oluo</p>
+        <StarRating />
       </div>
     </div>
   );
