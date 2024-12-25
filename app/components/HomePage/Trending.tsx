@@ -13,15 +13,15 @@ const StarRating = ({ count = 5, activeColor = "text-yellow-500" }) => (
 
 const Trending = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center w-full mt-10 mx-auto space-y-8 px-4">
+    <div className="flex min-h-screen   bg-gray-100 flex-col items-center w-full justify-center text-center  mt-10 mx-auto space-y-8 px-4 md:space-y-12">
       {/* Header */}
-      <div className="space-y-3">
+      <div className="space-y-3 p-2">
         <h1 className="font-bold text-2xl md:text-4xl text-gray-900">
           Trending This Week
         </h1>
         <p className="text-sm md:text-base text-gray-700">
-          Discover the most popular trends everyone is talking about. Stay
-          inspired and keep exploring!
+          Discover the most popular trends everyone is talking about. Stay inspired
+          and keep exploring!
         </p>
       </div>
 
@@ -41,6 +41,7 @@ const Trending = () => {
         <StarRating />
       </div>
     </div>
+
   );
 };
 

@@ -2,16 +2,16 @@ import React from 'react'
 import Service from './Service'
 import Trending from './Trending'
 import BestSeller from './BestSeller'
+import FlashSale from './FlashSale'
 
 const Pages = () => {
   return (
     <div>
-        <Service />
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <Trending />
-        
-      </div> 
-      <BestSeller/>
+      <Service />
+      <Trending />
+      <BestSeller />
+      <FlashSale />
+
     </div>
   )
 }
