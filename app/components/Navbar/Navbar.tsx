@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -7,58 +7,63 @@ import { CgProfile } from "react-icons/cg";
 import { IoIosBook } from "react-icons/io";
 import { IoMenu, IoClose } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
+import MenuItem, { menuItem } from "../../Functions/CategoryMenuItems";
 
 const links = [
   {
     label: "Home",
     href: "/",
-    icon: <AiFillMessage />
+    icon: <AiFillMessage />,
   },
   {
     label: "Books",
     href: "/ui/Book",
-    icon: <CgProfile />
+    icon: <CgProfile />,
   },
   {
-    label: "Magazines",
-    href: "/ui/Magazine",
-    icon: <IoIosBook />
+    label: "ShopLists",
+    href: "/ui/ShopLists",
+    icon: <IoIosBook />,
   },
   {
     label: "Textbooks",
     href: "/ui/Textbooks",
-    icon: <IoIosBook />
+    icon: <IoIosBook />,
   },
   {
     label: "Audiobooks",
     href: "/ui/Audiobooks",
-    icon: <IoIosBook />
+    icon: <IoIosBook />,
   },
+  // {
+  //   label: "Recommended",
+  //   href: "/ui/Recommended",
+  //   icon: <IoIosBook />
+  // },
   {
-    label: "Recommended",
-    href: "/ui/Recommended",
-    icon: <IoIosBook />
-  },
-  {
-    label: "Sales",
+    label: <MenuItem item={menuItem} />,
     href: "/ui/Sales",
-    icon: <IoIosBook />
-  }
-]
-
+    icon: <IoIosBook />,
+  },
+  {
+    label: "Help",
+    href: "/ui/Help",
+    icon: <IoIosBook />,
+  },
+];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
-  
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-  }
+  };
 
   const toggleSearch = () => {
     setSearchOpen(!searchOpen);
-  }
+  };
 
   return (
     <nav className="bg-gray-100 p-2">
@@ -68,24 +73,25 @@ const Navbar = () => {
           <p className="font-bold">BookCompass</p>
         </div>
         <div className="hidden md:flex gap-5">
-          {
-            links.map((link) => (
-              <Link href={link.href} key={link.label}>
-                <p className={`text-purple-600 md:hover:text-gray-900 ${pathname === link.href ? 'md:text-gray-900' : ''}`}>
-                  {link.label}
-                </p>
-              </Link>
-            ))
-          }
+          {links.map((link) => (
+            <Link href={link.href} key={link.label}>
+              <p
+                className={`text-purple-600 md:hover:text-gray-900 ${pathname === link.href ? "md:text-gray-900" : ""
+                  }`}
+              >
+                {link.label}
+              </p>
+            </Link>
+          ))}
         </div>
-         <div className="flex items-center gap-2">
-          <FiSearch 
-            className="text-2xl cursor-pointer" 
-            onClick={toggleSearch} 
+        <div className="flex items-center gap-2">
+          <FiSearch
+            className="text-2xl cursor-pointer"
+            onClick={toggleSearch}
             aria-label="Toggle search"
           />
-          <button 
-            className="md:hidden text-3xl focus:outline-none" 
+          <button
+            className="md:hidden text-3xl focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -93,10 +99,9 @@ const Navbar = () => {
           </button>
         </div>
         <div className="md:flex gap-2 hidden ">
-            <AiFillMessage className="text-2xl cursor-pointer" />
-            <CgProfile className="text-2xl cursor-pointer border-2 border-violet-500 outline-2 w-20  outline-gray-50 text-purple-500 rounded-md"/>
+          <AiFillMessage className="text-2xl cursor-pointer" />
+          <CgProfile className="text-2xl cursor-pointer border-2 border-violet-500 outline-2 w-20  outline-gray-50 text-purple-500 rounded-md" />
         </div>
-       
       </div>
       {searchOpen && (
         <div className="flex justify-center mt-2">
@@ -107,24 +112,26 @@ const Navbar = () => {
           />
         </div>
       )}
-      <div className={`fixed top-0 right-0 h-full w-2/4 bg-gray-100 z-50 transition-transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+      <div
+        className={`fixed top-0 right-0 h-full w-2/4 bg-gray-100 z-50 transition-transform ${menuOpen ? "translate-x-0" : "translate-x-full"
+          } md:hidden`}
+      >
         <div className="flex flex-col items-start p-4">
-          {
-            links.map((link) => (
-              <Link href={link.href} key={link.label}>
-                <p 
-                  className={`text-purple-600 block py-2 w-full hover:text-gray-900 hover:bg-teal-100 hover:rounded-md hover:p-2 ${pathname === link.href ? 'text-gray-900' : ''}`} 
-                  onClick={toggleMenu}
-                >
-                  {link.label}
-                </p>
-              </Link>
-            ))
-          }
+          {links.map((link) => (
+            <Link href={link.href} key={link.label}>
+              <p
+                className={`text-purple-600 block py-2 w-full hover:text-gray-900 hover:bg-teal-100 hover:rounded-md hover:p-2 ${pathname === link.href ? "text-gray-900" : ""
+                  }`}
+                onClick={toggleMenu}
+              >
+                {link.label}
+              </p>
+            </Link>
+          ))}
         </div>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;
