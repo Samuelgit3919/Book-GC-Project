@@ -74,18 +74,17 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex gap-5">
           {links.map((link) => (
-            <div>
-              <Link href={link.href}>
-                <p
-                  className={`text-purple-600 md:hover:text-gray-900 ${pathname === link.href ? "md:text-gray-900" : ""
-                    }`}
-                >
-                  {link.label}
-                </p>
-              </Link>
-
-            </div>
+            <Link href={link.href} key={String(link.label)}>
+              <p
+                className={`text-purple-600 block py-2 w-full hover:text-gray-900 hover:bg-teal-100 hover:rounded-md hover:p-2 ${pathname === link.href ? "text-gray-900" : ""
+                  }`}
+                onClick={toggleMenu}
+              >
+                {link.label}
+              </p>
+            </Link>
           ))}
+
         </div>
         <div className="flex items-center gap-2">
           <FiSearch
