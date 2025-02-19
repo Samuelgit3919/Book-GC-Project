@@ -120,7 +120,7 @@ const Navbar = () => {
       >
         <div className="flex flex-col items-start p-4">
           {links.map((link) => (
-            <Link href={link.href} key={link.label}>
+            <Link href={link.href} key={String(link.label)}>
               <p
                 className={`text-purple-600 block py-2 w-full hover:text-gray-900 hover:bg-teal-100 hover:rounded-md hover:p-2 ${pathname === link.href ? "text-gray-900" : ""
                   }`}
