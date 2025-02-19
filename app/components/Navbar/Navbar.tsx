@@ -74,7 +74,7 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex gap-5">
           {links.map((link) => (
-            <div key={link.label}>
+            <div>
               <Link href={link.href}>
                 <p
                   className={`text-purple-600 md:hover:text-gray-900 ${pathname === link.href ? "md:text-gray-900" : ""
