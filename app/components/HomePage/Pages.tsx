@@ -5,7 +5,7 @@ import BestSeller from "./BestSeller";
 import FlashSale from "./FlashSale";
 import Testimonials from "./Testimonials";
 import Subscribe from "./Subscribe";
-import Footer from "../Footer/Footer";
+
 
 const Pages = () => {
   return (
@@ -16,7 +16,7 @@ const Pages = () => {
       <FlashSale />
       <Testimonials />
       <Subscribe />
-      <Footer />
+
     </div>
   );
 };
