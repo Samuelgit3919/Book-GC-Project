@@ -9,10 +9,11 @@ const BestSeller = () => {
       title: "Be yourself & Never Surrender",
       subtitle: "Inspirational Journey",
       type: "Adventure",
-      rating: <MdStarRate />,
+      rating: 4.5,
       des: "Adventure of Mount Everest",
       author: "Hanry Marlopo",
-      Price: "$21.99",
+      price: 21.99,
+      discountPrice: 18.99,
     },
     {
       image:
@@ -20,10 +21,10 @@ const BestSeller = () => {
       title: "Theory: Is Alien Real",
       subtitle: "Explore the Unknown",
       type: "Fiction",
-      rating: <MdStarRate />,
+      rating: 4.2,
       des: "Life of wild",
       author: "Rick Riordan",
-      Price: "$19.99",
+      price: 19.99,
     },
     {
       image:
@@ -31,54 +32,85 @@ const BestSeller = () => {
       title: "The Unseen",
       subtitle: "Discover Hidden Mysteries",
       type: "Thriller",
-      rating: <MdStarRate />,
+      rating: 4.8,
       des: "Story of Everest",
       author: "Stephen King",
-      Price: "$24.99",
+      price: 24.99,
+      discountPrice: 21.99,
     },
   ];
 
   return (
-    <div className="w-full mx-auto py-10">
-      <h1 className="text-2xl sm:text-3xl my-4 mx-4 font-bold">Best Sellers</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+    <div className="w-full max-w-7xl mx-auto py-12 px-4">
+      <h1 className="text-3xl md:text-4xl my-6 font-bold text-gray-800 tracking-tight">
+        Best Sellers
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {slides.map((slide, index) => (
-          <div key={index} className="p-2 flex flex-col">
-            <div className="flex flex-col md:flex-row h-auto rounded-lg shadow-lg gap-4 bg-white">
-              {/* Image Section */}
+          <div
+            key={index}
+            className="group flex flex-col sm:flex-row transition-all duration-300 hover:shadow-xl rounded-xl bg-white overflow-hidden"
+          >
+            {/* Image Section - Left Side */}
+            <div className="relative sm:w-2/5">
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="h-60 md:h-80 w-full md:w-2/5 object-cover rounded-t-lg"
+                className="h-64 sm:h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
+              {slide.discountPrice && (
+                <span className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  Sale
+                </span>
+              )}
+            </div>
 
-              {/* Content Section */}
-              <div className="flex flex-col gap-4 relative p-4">
-                {/* Tag and Rating */}
-                <div className="flex md:flex-row flex-wrap items-center gap-2">
-                  <button className="p-2 bg-purple-300 w-24 rounded-md font-semibold text-sm md:text-base">
-                    {slide.type}
-                  </button>
-                  <button className="p-2 rounded-md h-[40px] w-24 flex items-center justify-center text-lg md:text-2xl text-orange-600 bg-orange-300 border-0">
-                    {slide.rating} <span>3.14</span>
-                  </button>
-                </div>
-
-                {/* Description */}
-                <h3 className="text-lg sm:text-xl font-semibold">
-                  {slide.des}
-                </h3>
-
-                {/* Author and Price */}
-                <div className="flex sm:flex-col items-start sm:items-start justify-between gap-2">
-                  <p className="font-serif text-sm sm:text-base">
-                    {slide.author}
-                  </p>
-                  <h2 className="font-mono text-xl sm:text-2xl text-purple-500">
-                    {slide.Price}
-                  </h2>
+            {/* Content Section - Right Side */}
+            <div className="flex flex-col p-4 sm:w-3/5 gap-4">
+              {/* Tag and Rating */}
+              <div className="flex items-center justify-between">
+                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+                  {slide.type}
+                </span>
+                <div className="flex items-center gap-1 text-orange-500">
+                  <MdStarRate size={20} />
+                  <span className="font-medium">{slide.rating}</span>
                 </div>
               </div>
+
+              {/* Title and Description */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 group-hover:text-purple-600 transition-colors">
+                  {slide.title}
+                </h3>
+                <p className="text-sm text-gray-600 mt-1">{slide.des}</p>
+              </div>
+
+              {/* Author and Price */}
+              <div className="mt-auto flex items-center justify-between">
+                <p className="font-serif text-gray-700">{slide.author}</p>
+                <div className="text-right">
+                  {slide.discountPrice ? (
+                    <div>
+                      <span className="text-sm text-gray-500 line-through">
+                        ${slide.price.toFixed(2)}
+                      </span>
+                      <span className="ml-2 text-xl font-bold text-purple-600">
+                        ${slide.discountPrice.toFixed(2)}
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="text-xl font-bold text-purple-600">
+                      ${slide.price.toFixed(2)}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Add to Cart Button */}
+              <button className="mt-4 w-full py-2 bg-purple-600 text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-purple-700">
+                Add to Cart
+              </button>
             </div>
           </div>
         ))}

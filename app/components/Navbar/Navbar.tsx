@@ -16,8 +16,8 @@ const links = [
     icon: <AiFillMessage />,
   },
   {
-    label: "Books",
-    href: "/ui/Book",
+    label: "EBooks",
+    href: "/ui/EBook",
     icon: <CgProfile />,
   },
   {
@@ -36,15 +36,10 @@ const links = [
     icon: <IoIosBook />,
   },
   // {
-  //   label: "Recommended",
-  //   href: "/ui/Recommended",
-  //   icon: <IoIosBook />
+  //   label: <MenuItem item={menuItem} />,
+  //   href: "/ui/Sales",
+  //   icon: <IoIosBook />,
   // },
-  {
-    label: <MenuItem item={menuItem} />,
-    href: "/ui/Sales",
-    icon: <IoIosBook />,
-  },
   {
     label: "Help",
     href: "/ui/Help",
@@ -74,17 +69,17 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex gap-5">
           {links.map((link) => (
-            <Link href={link.href} key={String(link.label)}>
-              <p
-                className={`text-purple-600 block py-2 w-full hover:text-gray-900 hover:bg-teal-100 hover:rounded-md hover:p-2 ${pathname === link.href ? "text-gray-900" : ""
-                  }`}
+            <Link href={link.href} key={String(link.label)} passHref>
+              <div
+                className={`text-purple-600 block py-2 w-full hover:text-gray-900  hover:rounded-md  ${
+                  pathname === link.href ? "text-gray-900" : ""
+                }`}
                 onClick={toggleMenu}
               >
                 {link.label}
-              </p>
+              </div>
             </Link>
           ))}
-
         </div>
         <div className="flex items-center gap-2">
           <FiSearch
@@ -115,19 +110,21 @@ const Navbar = () => {
         </div>
       )}
       <div
-        className={`fixed top-0 right-0 h-full w-2/4 bg-gray-100 z-50 transition-transform ${menuOpen ? "translate-x-0" : "translate-x-full"
-          } md:hidden`}
+        className={`fixed top-0 right-0 h-full w-2/4 bg-gray-100 z-50 transition-transform ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        } md:hidden`}
       >
         <div className="flex flex-col items-start p-4">
           {links.map((link) => (
-            <Link href={link.href} key={String(link.label)}>
-              <p
-                className={`text-purple-600 block py-2 w-full hover:text-gray-900 hover:bg-teal-100 hover:rounded-md hover:p-2 ${pathname === link.href ? "text-gray-900" : ""
-                  }`}
+            <Link href={link.href} key={String(link.label)} passHref>
+              <div
+                className={`text-purple-600 block py-2 w-full hover:text-gray-900 hover:bg-teal-100 hover:rounded-md hover:p-2 ${
+                  pathname === link.href ? "text-gray-900" : ""
+                }`}
                 onClick={toggleMenu}
               >
                 {link.label}
-              </p>
+              </div>
             </Link>
           ))}
         </div>
