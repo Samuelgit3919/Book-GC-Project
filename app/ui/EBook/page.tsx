@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const BookPage = () => {
@@ -129,7 +130,8 @@ const BookPage = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
         {ebooksForSales.map((book) => (
-          <div
+          <Link
+            href={`/ui/EBook/${book.id}`}
             key={book.id}
             className="flex flex-col items-center text-center hover:border-2 hover:border-gray-600"
           >
@@ -152,7 +154,7 @@ const BookPage = () => {
             <button className="mt-4 bg-purple-600 text-white font-semibold py-2 px-6 rounded hover:bg-green-700 transition">
               READ NOW
             </button>
-          </div>
+          </Link>
         ))}
       </div>
 

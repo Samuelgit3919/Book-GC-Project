@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const BookList = () => {
@@ -133,9 +134,11 @@ const BookList = () => {
                 </div>
 
                 {/* More Details Button */}
-                <button className="bg-purple-200 text-gray font-semibold py-2 px-4 rounded-md hover:bg-purple-300 transition">
-                  More Details
-                </button>
+                <Link href={`/ui/ShopLists/${store.name}`}>
+                  <button className="bg-purple-200 text-gray font-semibold py-2 px-4 rounded-md hover:bg-purple-300 transition">
+                    More Details
+                  </button>
+                </Link>
               </div>
             ))}
           </div>
