@@ -1,46 +1,8 @@
 import Link from "next/link";
 import React from "react";
+import { bookStores } from "./shopLista";
 
 const BookList = () => {
-  const bookStores = [
-    {
-      id: 1,
-      name: "ADDIS LIBRARY",
-      contact: "Office: +25111467...",
-    },
-    {
-      id: 2,
-      name: "AFRICA BOOK STORE",
-      contact: "Office: +25111111...",
-    },
-    {
-      id: 3,
-      name: "AFRICAN BOOK SHOP",
-      contact: "Office: +25111111...",
-    },
-    {
-      id: 4,
-      name: "AGGAM HEALTH, NUTRITION, CHILD CARE AND MARRIAGE COUNSELING",
-      contact: "Mobile: +25191167...",
-      website: true,
-    },
-    {
-      id: 5,
-      name: "AL-AQSSA BOOK STORE",
-      contact: "Office: +25111111...",
-    },
-    {
-      id: 6,
-      name: "AYANA PUBLISHING P.L.C",
-      contact: "Mobile: +25191194...",
-    },
-    {
-      id: 7,
-      name: "AYNALEM BOOK STORE",
-      contact: "Office: +25111550...",
-    },
-  ];
-
   return (
     <div className="w-full mx-auto py-8 bg-gray-50">
       <div className="flex flex-col md:flex-row gap-6 max-w-7xl mx-auto">
@@ -109,8 +71,9 @@ const BookList = () => {
           {/* Book Stores List */}
           <div className="space-y-6">
             {bookStores.map((store) => (
-              <div
+              <Link
                 key={store.id}
+                href={`/ui/ShopLists/${store.name}`}
                 className="flex justify-between items-center border-b border-gray-200 pb-4 hover:bg-gray-50 transition"
               >
                 <div className="flex items-center">
@@ -134,12 +97,12 @@ const BookList = () => {
                 </div>
 
                 {/* More Details Button */}
-                <Link href={`/ui/ShopLists/${store.name}`}>
+                <div>
                   <button className="bg-purple-200 text-gray font-semibold py-2 px-4 rounded-md hover:bg-purple-300 transition">
                     More Details
                   </button>
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

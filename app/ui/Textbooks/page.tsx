@@ -3,6 +3,8 @@
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
 import React, { useState } from "react";
+import Link from "next/link";
+import { textbooks, categories, bookFormats } from "./textBook";
 
 const TextBook = () => {
   // State for filter toggle on mobile
@@ -17,56 +19,6 @@ const TextBook = () => {
   const [selectedFormat, setSelectedFormat] = useState("All Format");
   const [selectedYear, setSelectedYear] = useState("");
   const [priceRange, setPriceRange] = useState([0, 500]);
-
-  const textbooks = [
-    {
-      id: 1,
-      title: "Harriet Tubman: Live in Concert",
-      author: "Bob the Drag Queen",
-      price: 29.03,
-      image:
-        "https://images-us.bookshop.org/ingram/9781668061978.jpg?width=384&v=v2",
-      description:
-        "The first from TV host and RuPaul's Drag Race winner Bob The Drag Queen vibes with energy and humor but never wavers in its focus on the resilience and power of Black Americans, 'made out of something stronger than steel and diamonds combined,' and the universal passion for liberation.",
-      category: "Biography & Memory",
-      format: "Hard Cover",
-      year: 2023,
-    },
-    {
-      id: 2,
-      title: "The Instability of Truth",
-      author: "Rebecca Lemov",
-      price: 30.68,
-      image:
-        "https://images-us.bookshop.org/ingram/9781324075264.jpg?width=384&v=v2",
-      description:
-        "Provocative and illuminating... Lemov's deeply researched exploration reveals how the persuasive power wielded by charismatic figures can answer, in a warped way, a person's yearning for self-reinvention and meaning... Publishers Weekly, starred review. A chilling and spellbinding history of mind control, from prison camps to online algorithms. -- Jill Lepore, author of If Then: How the Simulmatics Corporation Invented the Future.",
-      category: "History",
-      format: "E-Book",
-      year: 2022,
-    },
-  ];
-
-  const categories = [
-    "All Genres",
-    "Arts & Photography",
-    "Biography & Memory",
-    "Children's Book",
-    "Cookbook & Food",
-    "History",
-    "Literature & Fiction",
-    "Romance",
-    "SciFi & Fantasy",
-    "Teen & Young Adult",
-  ];
-
-  const bookFormats = [
-    "All Format",
-    "Hard Cover",
-    "Paper Back",
-    "E-Book",
-    "Large Print",
-  ];
 
   const years = ["2023", "2022", "2021", "2020"];
 
@@ -309,7 +261,8 @@ const TextBook = () => {
         {filteredTextbooks.length > 0 ? (
           <div className="space-y-8">
             {filteredTextbooks.map((book) => (
-              <div
+              <Link
+                href={`/ui/Textbooks/${book.id}`}
                 key={book.id}
                 className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 border-b border-gray-200 pb-6 sm:pb-8 hover:bg-gray-50 transition-all duration-300"
               >
@@ -333,7 +286,7 @@ const TextBook = () => {
                     See Details
                   </button>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (

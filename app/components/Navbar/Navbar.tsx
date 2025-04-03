@@ -1,135 +1,97 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { AiFillMessage } from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
-import { IoIosBook } from "react-icons/io";
-import { IoMenu, IoClose } from "react-icons/io5";
-import { FiSearch } from "react-icons/fi";
-import MenuItem, { menuItem } from "../../Functions/CategoryMenuItems";
-
-const links = [
-  {
-    label: "Home",
-    href: "/",
-    icon: <AiFillMessage />,
-  },
-  {
-    label: "EBooks",
-    href: "/ui/EBook",
-    icon: <CgProfile />,
-  },
-  {
-    label: "ShopLists",
-    href: "/ui/ShopLists",
-    icon: <IoIosBook />,
-  },
-  {
-    label: "Textbooks",
-    href: "/ui/Textbooks",
-    icon: <IoIosBook />,
-  },
-  {
-    label: "Audiobooks",
-    href: "/ui/Audiobooks",
-    icon: <IoIosBook />,
-  },
-  // {
-  //   label: <MenuItem item={menuItem} />,
-  //   href: "/ui/Sales",
-  //   icon: <IoIosBook />,
-  // },
-  {
-    label: "Help",
-    href: "/ui/Help",
-    icon: <IoIosBook />,
-  },
-];
+import { IoIosBook, IoIosSearch } from "react-icons/io";
+import Lower from "./Lower";
+import { IoClose, IoMenu } from "react-icons/io5";
+import NavRouter from "./NavRouter";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const toggleSearch = () => {
-    setSearchOpen(!searchOpen);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <nav className="bg-gray-100 p-2">
-      <div className="flex justify-between md:justify-around items-center mx-2">
-        <div className="flex items-center gap-1">
-          <IoIosBook className="text-2xl md:text-3xl text-purple-800" />
-          <p className="font-bold">BookCompass</p>
-        </div>
-        <div className="hidden md:flex gap-5">
-          {links.map((link) => (
-            <Link href={link.href} key={String(link.label)} passHref>
-              <div
-                className={`text-purple-600 block py-2 w-full hover:text-gray-900  hover:rounded-md  ${
-                  pathname === link.href ? "text-gray-900" : ""
-                }`}
-                onClick={toggleMenu}
-              >
-                {link.label}
-              </div>
+    <>
+      {/* Header */}
+      <header className="bg-white shadow-md md:px-4">
+        <div className="container mx-auto px-4 py-1 md:py-2">
+          <div className="flex items-center justify-between gap-4">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+              <IoIosBook className="text-2xl md:text-3xl text-gray-800 transition-transform hover:scale-110" />
+              <span className="font-bold text-lg md:text-xl text-gray-900 tracking-tight">
+                BookCompass
+              </span>
             </Link>
-          ))}
-        </div>
-        <div className="flex items-center gap-2">
-          <FiSearch
-            className="text-2xl cursor-pointer"
-            onClick={toggleSearch}
-            aria-label="Toggle search"
-          />
-          <button
-            className="md:hidden text-3xl focus:outline-none"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <IoClose /> : <IoMenu />}
-          </button>
-        </div>
-        <div className="md:flex gap-2 hidden ">
-          <AiFillMessage className="text-2xl cursor-pointer" />
-          <CgProfile className="text-2xl cursor-pointer border-2 border-violet-500 outline-2 w-20  outline-gray-50 text-purple-500 rounded-md" />
-        </div>
-      </div>
-      {searchOpen && (
-        <div className="flex justify-center mt-2">
-          <input
-            type="text"
-            placeholder="Search Books"
-            className="w-3/4 p-2 border-b-2 border-gray-300 focus:outline-none focus:border-purple-600"
-          />
-        </div>
-      )}
-      <div
-        className={`fixed top-0 right-0 h-full w-2/4 bg-gray-100 z-50 transition-transform ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden`}
-      >
-        <div className="flex flex-col items-start p-4">
-          {links.map((link) => (
-            <Link href={link.href} key={String(link.label)} passHref>
-              <div
-                className={`text-purple-600 block py-2 w-full hover:text-gray-900 hover:bg-teal-100 hover:rounded-md hover:p-2 ${
-                  pathname === link.href ? "text-gray-900" : ""
-                }`}
-                onClick={toggleMenu}
-              >
-                {link.label}
+
+            {/* Search Bar - Hidden on mobile */}
+            <div className="hidden md:flex flex-1 max-w-2xl mx-4">
+              <div className="relative w-full">
+                <input
+                  type="text"
+                  placeholder="Search by keyword, title, author or ISBN"
+                  className="w-full py-2 px-5 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 text-gray-700 placeholder-gray-400"
+                />
+                <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-purple-600 transition-colors">
+                  <IoIosSearch className="h-5 w-5" />
+                </button>
               </div>
-            </Link>
-          ))}
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-6">
+              <NavRouter />
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-gray-600 hover:text-purple-800 transition-colors p-1"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <IoClose className="h-6 w-6" />
+              ) : (
+                <IoMenu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+
+          {/* Mobile Search Bar */}
+          <div className="md:hidden mt-3">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search books..."
+                className="w-full py-2 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-700 placeholder-gray-400"
+              />
+              <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-purple-600">
+                <IoIosSearch className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex flex-col pt-20 px-6 h-full bg-gradient-to-b from-purple-50 to-white">
+            <NavRouter />
+          </div>
+        </div>
+      </header>
+
+      {/* Lower Navigation Component */}
+      <div className="mt-0">
+        <Lower />
       </div>
-    </nav>
+    </>
   );
 };
 

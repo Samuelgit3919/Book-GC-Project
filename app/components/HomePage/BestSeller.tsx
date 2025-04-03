@@ -69,7 +69,7 @@ const BestSeller = () => {
             <div className="flex flex-col p-4 sm:w-3/5 gap-4">
               {/* Tag and Rating */}
               <div className="flex items-center justify-between">
-                <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+                <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
                   {slide.type}
                 </span>
                 <div className="flex items-center gap-1 text-orange-500">
@@ -80,7 +80,7 @@ const BestSeller = () => {
 
               {/* Title and Description */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 group-hover:text-purple-600 transition-colors">
+                <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600 transition-colors">
                   {slide.title}
                 </h3>
                 <p className="text-sm text-gray-600 mt-1">{slide.des}</p>
@@ -95,12 +95,12 @@ const BestSeller = () => {
                       <span className="text-sm text-gray-500 line-through">
                         ${slide.price.toFixed(2)}
                       </span>
-                      <span className="ml-2 text-xl font-bold text-purple-600">
+                      <span className="ml-2 text-xl font-bold text-gray-600">
                         ${slide.discountPrice.toFixed(2)}
                       </span>
                     </div>
                   ) : (
-                    <span className="text-xl font-bold text-purple-600">
+                    <span className="text-xl font-bold text-gray-600">
                       ${slide.price.toFixed(2)}
                     </span>
                   )}
@@ -108,7 +108,7 @@ const BestSeller = () => {
               </div>
 
               {/* Add to Cart Button */}
-              <button className="mt-4 w-full py-2 bg-purple-600 text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-purple-700">
+              <button className="mt-4 w-full py-2 bg-gray-600 text-white rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-gray-700">
                 Add to Cart
               </button>
             </div>

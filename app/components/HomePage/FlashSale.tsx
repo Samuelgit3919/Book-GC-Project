@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { FaArrowLeft, FaArrowRight, FaStar, FaShoppingCart } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaStar,
+  FaShoppingCart,
+} from "react-icons/fa";
 
 const FlashSale = () => {
   const slides = [
@@ -85,14 +90,15 @@ const FlashSale = () => {
   };
 
   return (
-    <div className="bg-purple-600 text-white w-full h-auto md:h-[400px] flex flex-col md:flex-row gap-4">
+    <div className="bg-gray-600 text-white w-full h-auto md:h-[400px] flex flex-col md:flex-row gap-4">
       {/* Text Section */}
       <div className="p-6 md:p-8 w-full md:w-1/3 md:ml-12 text-center md:text-left flex flex-col justify-center">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
           Flash Sale
         </h1>
         <p className="py-4 text-sm sm:text-base max-w-md">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
         <div className="inline-flex items-center justify-center rounded-lg bg-white/10 p-4 space-x-6 shadow-lg">
           <span className="flex flex-col items-center">
@@ -136,7 +142,7 @@ const FlashSale = () => {
                 />
                 <div className="flex flex-col gap-2 mt-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-xs bg-purple-200 text-purple-800 px-2 py-1 rounded-full">
+                    <span className="text-xs bg-gray-200 text-gray-800 px-2 py-1 rounded-full">
                       {slide.type}
                     </span>
                     <div className="flex items-center gap-1 text-yellow-400">
@@ -144,14 +150,19 @@ const FlashSale = () => {
                       <FaStar size={14} />
                       <FaStar size={14} />
                       <FaStar size={14} />
-                      <span className="text-white text-xs">({slide.rating})</span>
+                      <span className="text-white text-xs">
+                        ({slide.rating})
+                      </span>
                     </div>
                   </div>
                   <h3 className="text-sm font-semibold">{slide.title}</h3>
                   <p className="text-xs text-gray-300">{slide.author}</p>
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-bold">
-                      ${slide.discountPrice ? slide.discountPrice.toFixed(2) : slide.price.toFixed(2)}
+                      $
+                      {slide.discountPrice
+                        ? slide.discountPrice.toFixed(2)
+                        : slide.price.toFixed(2)}
                     </span>
                     {slide.discountPrice && (
                       <span className="text-xs text-gray-400 line-through">
@@ -168,7 +179,7 @@ const FlashSale = () => {
                     </div>
                     <span className="text-xs">{slide.stock} books left</span>
                   </div>
-                  <button className="mt-2 flex items-center justify-center gap-2 px-3 py-1 bg-purple-500 rounded-md hover:bg-purple-400 transition-colors">
+                  <button className="mt-2 flex items-center justify-center gap-2 px-3 py-1 bg-gray-500 rounded-md hover:bg-gray-400 transition-colors">
                     <FaShoppingCart size={14} />
                     <span className="text-sm">Add</span>
                   </button>
@@ -184,7 +195,7 @@ const FlashSale = () => {
                 />
                 <div className="flex flex-col gap-2 mt-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-xs bg-purple-200 text-purple-800 px-2 py-1 rounded-full">
+                    <span className="text-xs bg-gray-200 text-gray-800 px-2 py-1 rounded-full">
                       {slides[(index + 1) % slides.length].type}
                     </span>
                     <div className="flex items-center gap-1 text-yellow-400">
@@ -192,14 +203,25 @@ const FlashSale = () => {
                       <FaStar size={14} />
                       <FaStar size={14} />
                       <FaStar size={14} />
-                      <span className="text-white text-xs">({slides[(index + 1) % slides.length].rating})</span>
+                      <span className="text-white text-xs">
+                        ({slides[(index + 1) % slides.length].rating})
+                      </span>
                     </div>
                   </div>
-                  <h3 className="text-sm font-semibold">{slides[(index + 1) % slides.length].title}</h3>
-                  <p className="text-xs text-gray-300">{slides[(index + 1) % slides.length].author}</p>
+                  <h3 className="text-sm font-semibold">
+                    {slides[(index + 1) % slides.length].title}
+                  </h3>
+                  <p className="text-xs text-gray-300">
+                    {slides[(index + 1) % slides.length].author}
+                  </p>
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-bold">
-                      ${slides[(index + 1) % slides.length].discountPrice ? slides[(index + 1) % slides.length].discountPrice.toFixed(2) : slides[(index + 1) % slides.length].price.toFixed(2)}
+                      $
+                      {slides[(index + 1) % slides.length].discountPrice
+                        ? slides[
+                            (index + 1) % slides.length
+                          ].discountPrice.toFixed(2)
+                        : slides[(index + 1) % slides.length].price.toFixed(2)}
                     </span>
                     {slides[(index + 1) % slides.length].discountPrice && (
                       <span className="text-xs text-gray-400 line-through">
@@ -211,12 +233,19 @@ const FlashSale = () => {
                     <div className="w-full bg-gray-300 rounded-full h-2">
                       <div
                         className="bg-orange-500 h-2 rounded-full"
-                        style={{ width: `${(slides[(index + 1) % slides.length].stock / 50) * 100}%` }}
+                        style={{
+                          width: `${
+                            (slides[(index + 1) % slides.length].stock / 50) *
+                            100
+                          }%`,
+                        }}
                       ></div>
                     </div>
-                    <span className="text-xs">{slides[(index + 1) % slides.length].stock} books left</span>
+                    <span className="text-xs">
+                      {slides[(index + 1) % slides.length].stock} books left
+                    </span>
                   </div>
-                  <button className="mt-2 flex items-center justify-center gap-2 px-3 py-1 bg-purple-500 rounded-md hover:bg-purple-400 transition-colors">
+                  <button className="mt-2 flex items-center justify-center gap-2 px-3 py-1 bg-gray-500 rounded-md hover:bg-gray-400 transition-colors">
                     <FaShoppingCart size={14} />
                     <span className="text-sm">Add</span>
                   </button>
@@ -231,13 +260,13 @@ const FlashSale = () => {
           onClick={prevSlide}
           className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full hover:bg-gray-200 transition-colors"
         >
-          <FaArrowLeft size={16} className="text-purple-600" />
+          <FaArrowLeft size={16} className="text-gray-600" />
         </button>
         <button
           onClick={nextSlide}
           className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full hover:bg-gray-200 transition-colors"
         >
-          <FaArrowRight size={16} className="text-purple-600" />
+          <FaArrowRight size={16} className="text-gray-600" />
         </button>
 
         {/* Dots for Navigation */}

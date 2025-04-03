@@ -6,12 +6,11 @@ import FlashSale from "./FlashSale";
 import Testimonials from "./Testimonials";
 import Subscribe from "./Subscribe";
 
-
 const Pages = () => {
   return (
     <div>
       <Service />
-      <Trending />
+      {/* <Trending /> */}
       <BestSeller />
       <FlashSale />
       <Testimonials />
