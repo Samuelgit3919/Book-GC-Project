@@ -46,7 +46,7 @@ export default function BookPage() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <mai n className="container mx-auto p-4 px-12">
+            <main className="container mx-auto p-4 px-12">
                 {/* Back to Books Link */}
                 <Link href="/" className="flex items-center text-gray-600 hover:text-gray-800 mb-4">
                     <FaArrowLeft className="mr-2" />
