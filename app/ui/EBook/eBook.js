@@ -6,7 +6,22 @@ export const ebooksForSales = [
     author: "Yeabtsega Ambaw",
     category: "Amharic Fiction",
     price: 56.0,
+    description: "",
     discountPrice: 5.0,
+    authorImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Fiction/yeabi-sigat-yeabtsega-ambaw.webp",
+    authorFacebook: "https://www.facebook.com/yeabtsegaambaw",
+    authorFacebookImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Fiction/yeabi-sigat-yeabtsega-ambaw.webp",
+    authorTwitter: "https://twitter.com/yeabtsegaambaw",
+    authorTwitterImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Fiction/yeabi-sigat-yeabtsega-ambaw.webp",
+    authorGoodreads: "https://www.goodreads.com/yeabtsegaambaw",
+    authorGoodreadsImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Fiction/yeabi-sigat-yeabtsega-ambaw.webp",
+    authorAmazon: "https://www.amazon.com/yeabtsegaambaw",
+    authorAmazonImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Fiction/yeabi-sigat-yeabtsega-ambaw.webp",
     stock: 45,
   },
   {
@@ -16,7 +31,22 @@ export const ebooksForSales = [
     author: "Janko Getachew",
     category: "Afan Oromo Biography",
     price: 100.0,
+    description: "",
     discountPrice: 10.0,
+    authorImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Afan%20Oromo/Biography/mirga-ajjeesuu-janko-getachew.webp",
+    authorFacebook: "https://www.facebook.com/jankogetachew",
+    authorFacebookImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Afan%20Oromo/Biography/mirga-ajjeesuu-janko-getachew.webp",
+    authorTwitter: "https://twitter.com/jankogetachew",
+    authorTwitterImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Afan%20Oromo/Biography/mirga-ajjeesuu-janko-getachew.webp",
+    authorGoodreads: "https://www.goodreads.com/jankogetachew",
+    authorGoodreadsImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Afan%20Oromo/Biography/mirga-ajjeesuu-janko-getachew.webp",
+    authorAmazon: "https://www.amazon.com/jankogetachew",
+    authorAmazonImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Afan%20Oromo/Biography/mirga-ajjeesuu-janko-getachew.webp",
     stock: 2,
   },
   {
@@ -26,7 +56,22 @@ export const ebooksForSales = [
     author: "Hirko Yoseph",
     category: "Afan Oromo Education",
     price: 100.0,
+    description: "",
     discountPrice: 25.0,
+    authorImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Afan%20Oromo/Education/abuurraa-addunyaa-hirko-yoseph.webp",
+    authorFacebook: "https://www.facebook.com/hirko",
+    authorFacebookImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Afan%20Oromo/Education/abuurraa-addunyaa-hirko-yoseph.webp",
+    authorTwitter: "https://twitter.com/hirko",
+    authorTwitterImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Afan%20Oromo/Education/abuurraa-addunyaa-hirko-yoseph.webp",
+    authorGoodreads: "https://www.goodreads.com/hirko",
+    authorGoodreadsImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Afan%20Oromo/Education/abuurraa-addunyaa-hirko-yoseph.webp",
+    authorAmazon: "https://www.amazon.com/hirko",
+    authorAmazonImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Afan%20Oromo/Education/abuurraa-addunyaa-hirko-yoseph.webp",
     stock: 45,
   },
   {
@@ -36,7 +81,22 @@ export const ebooksForSales = [
     author: "Yeabtsega Ambaw",
     category: "Amharic Fiction",
     price: 56.0,
+    description: "",
     discountPrice: 5.0,
+    authorImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Fiction/sabawuyan-yeabtsega-ambaw.webp",
+    authorFacebook: "https://www.facebook.com/yeabtsegaambaw",
+    authorFacebookImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Fiction/sabawuyan-yeabtsega-ambaw.webp",
+    authorTwitter: "https://twitter.com/yeabtsegaambaw",
+    authorTwitterImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Fiction/sabawuyan-yeabtsega-ambaw.webp",
+    authorGoodreads: "https://www.goodreads.com/yeabtsegaambaw",
+    authorGoodreadsImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Fiction/sabawuyan-yeabtsega-ambaw.webp",
+    authorAmazon: "https://www.amazon.com/yeabtsegaambaw",
+    authorAmazonImage:
+      "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Fiction/sabawuyan-yeabtsega-ambaw.webp",
     stock: 45,
   },
 ];
@@ -52,7 +112,7 @@ export const recentlyAdded = [
   {
     id: 6,
     title: "ፍካሬዎች እና ፍቅር",
-    description:"",
+    description: "",
     img: "https://www.ethiobookreview.com/assets/product_imgs/Amharic/Poetry/and-ken-kirubel-kuma.webp",
     author: "Fikremarkos Desta",
   },

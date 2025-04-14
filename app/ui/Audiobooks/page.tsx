@@ -1,8 +1,10 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import React, { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { audiobooks } from "./audiobooks";
+import { Button } from "@/components/ui/button";
 
 // Categories data (unchanged)
 const categories = [
@@ -112,9 +114,12 @@ const AudioBooks = () => {
                   href={`/ui/Audiobooks/${book.id}`}
                   className="flex-shrink-0 w-40 sm:w-48 md:w-52 snap-start transition-transform duration-300"
                 >
-                  <img
+                  <Image
                     src={book.image}
                     alt={book.title}
+                    width={200}
+                    height={200}
+                    unoptimized
                     className="w-full h-40 sm:h-48 md:h-52 object-cover rounded-md mb-2 shadow-md"
                   />
                   <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1 line-clamp-2">
@@ -126,13 +131,13 @@ const AudioBooks = () => {
                 </Link>
               ))}
             </div>
-
-            <button
+            {/* <Button>Click me</Button> */}
+            <Button
               onClick={scrollRight}
               className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity z-10"
             >
               <FaChevronRight className="text-xl" />
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -157,10 +162,13 @@ const AudioBooks = () => {
                 <h3 className="text-sm sm:text-base font-semibold text-white">
                   {category.title}
                 </h3>
-                <img
+                <Image
                   src={category.image}
                   alt={category.title}
+                  width={200}
+                  height={200}
                   className="w-32 mb-3 object-contain"
+                  unoptimized
                 />
               </div>
             ))}
@@ -168,7 +176,7 @@ const AudioBooks = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
         }
